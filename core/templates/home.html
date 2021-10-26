@@ -1,0 +1,201 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+  <link rel="icon" 
+  type="image/png" 
+  href="https://cdn1.vectorstock.com/i/1000x1000/00/25/wine-logo-transparent-background-vector-16260025.jpg"/>
+  <title>Grapewine</title>
+</head>
+<body>
+
+  <!-- headers -->
+  <section id="headers">
+    <div class="headers container">
+      <div class="navigate">
+        <div class="brand">
+          <a href="#home">
+            <h1><span>G</span>rape<span>W</span>ine</h1>
+          </a>
+        </div>
+        <div class="navbar-list">
+          <div class="hammenu">
+            <div class="bar"></div>
+          </div>
+          <ul>
+            <li><a href="#home" data-after="Home">Home</a></li>
+            <li><a href="#services" data-after="Service">About</a></li>
+            <li><a href="#contact" data-after="Contact">Contact</a></li>
+            <li><a href="/store/prod" data-after="Contact">Shop</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Home Section  -->
+  <section id="home">
+    <div class="home container">
+      <div>
+        <h1>Grapewine<span></span></h1>
+        <h1>The older,<span></span></h1>
+        <h1>the better.<span></span></h1>
+        <a href = "/store/prod" type="button" class="cta" style="padding: 10px 15px;">Get started</a>
+      </div>
+
+    </div>
+  </section>
+  <!-- End Home Section  -->
+
+  <!-- About Section -->
+
+<section id="services">
+    <div class="services container">
+      <div class="service-top">
+        <h1 class="section-title">About <span>Us</span></h1>
+        <p style="font-size: 18px;"> Grapewine brings you luxury wines at an affordable price. Made from only the choicest grapes freshly picked in vines, I wanted their website to have a nice, clean and elegant look to reflect the the extremely high quality of their product. Each year, the company releases it's line of wines under ascending numbers corresponding to the line of wines released.</div>
+      <div class="service-bottom">
+        <div class="service-item">
+            <div class="icon"><img src="{% static 'images/redwine.png' %}" alt="img" ></div>
+          <h2 style="margin-left: 70px;">White wine</h2>
+          
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="order">Order now</a>
+        </div>
+
+        <div class="service-item">
+          <div class="icon"><img src="{% static 'images/witewine.png' %}" alt="img" ></div>
+
+            <h2 style="margin-left: 70px;">Red wine</h2>
+
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+        </div>
+        <a href="store/prod?category_id=1" class="order">Order now</a>
+          </div>
+
+          <div class="service-item">
+            <div class="icon"><img src="{% static 'images/roses.png' %}" alt="img" ></div>
+            <h2 style="margin-left: 85px;">Others</h2>
+
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+        </div>
+        <a href="store/prod?category_id=1" class="order">Order now</a>
+          </div>
+
+    </div>
+  </section>
+  <!-- End Service Section -->
+
+  <div class="step-container">
+
+    <h1 class="section-title">How we<span> work</span></h1>
+
+    <section class="steps">
+
+        <div class="boxy">
+            <img src="https://media.istockphoto.com/photos/couple-at-the-supermarket-picture-id664439588?k=20&m=664439588&s=612x612&w=0&h=C4Pns9-zXAtx4qoO_1PUruDKx1pBF1yY3KqVPTLRduY=" alt="">
+            <h3 class="option ">Make your choice</h3>
+        </div>
+        <div class="boxy">
+            <img src="https://www.nicepng.com/png/detail/114-1145675_delivery-png-clipart-home-delivery-service-logo.png" alt="">
+            <h3 class="option" >Timely delivery</h3>
+        </div>
+        <div class="boxy">
+            <img src="data:image/jpeg;base64,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" alt="">
+            <h3 class="option" >Easy payments methods</h3>
+        </div>
+        <div class="boxy">
+            <img src="https://media.istockphoto.com/photos/close-up-of-young-couple-toasting-with-glasses-of-red-wine-at-picture-id1184016689?k=20&m=1184016689&s=170667a&w=0&h=5Sy0U7jfFhOoXjPDRt_INiK3obX-lJr_rlfczSd4RsY=" alt="">
+            <h3 class="option" >Cheers to a glass of wine</h3>
+        </div>
+    
+    </section>
+
+</div>
+  <!-- Contact Section -->
+
+  <section id="contact">
+    <div class="contact container">
+      <div>
+        <h1 class="section-title" style="margin-bottom: 210px;">Contact <span>info</span></h1>
+      </div>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/phone.png" /></div>
+          <div class="contact-info">
+            <h1>Phone</h1>
+            <h2>+25411223344</h2>
+            <h2>+25432333435</h2>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/new-post.png" /></div>
+          <div class="contact-info">
+            <h1>Email</h1>
+            <h2>info@grapewine@gmail.com</h2>
+            <h2>grapewine@gmail.com</h2>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon"><img src="https://img.icons8.com/bubbles/100/000000/map-marker.png" /></div>
+          <div class="contact-info">
+            <h1>Address</h1>
+            <h2>Kanairo,Nairobi</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Contact Section -->
+
+  <!-- Footer -->
+
+  <section id="footer">
+    <div class="footer container">
+      <div class="brand">
+        <h1><span>G</span>rape<span>W</span>ine</h1>
+      </div>
+      <h2>The older,the better.</h2>
+      <div class="social-icon">
+        <div class="social-item">
+          <a href=""><img src="https://img.icons8.com/bubbles/100/000000/facebook-new.png" /></a>
+        </div>
+        <div class="social-item">
+          <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/instagram-new.png" /></a>
+        </div>
+        <div class="social-item">
+          <a href="#"><img src="https://img.icons8.com/bubbles/100/000000/twitter.png" /></a>
+        </div>
+        
+      </div>
+      
+      <p>Copyright © 2021 Mwimali. All rights reserved</p>
+    </div>
+  </section>
+  <!-- End of Footer -->
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

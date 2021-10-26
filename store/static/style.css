@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+
+.btn-product{
+    width: 100%;
+}
+
+.list-group {
+	font-size:14px;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+    font-family: 'Nunito', sans-serif;
+}
+
+
+
+.product-card img {
+    height: 200px;
+}
+
+
+/* iPad Pro Screen */
+@media only screen and (max-width: 1024px) {
+	.list-group {
+	font-size:15px;
+}
+
+    .product-card {
+        height: 300px;
+        width: 230px;
+    }
+
+    .product-card img {
+        height: 100px;
+    }
+
+}
+
+/* iPad Screen */
+@media only screen and (max-width: 780px) {
+	.list-group {
+	font-size:12px;
+}
+
+    .product-card {
+        height: 290px;
+        width: 180px;
+    }
+
+    .product-card img {
+        height: 100px;
+    }
+
+}
+
+/* Mobile Phone Screen */
+@media only screen and (max-width: 600px) {
+	.list-group {
+	font-size:17px;
+	}
+
+    .product-card {
+        height: 400px;
+        width: 300px;
+    }
+
+    .product-card img {
+        height: 200px;
+    }
+}
+.ctg:hover {
+    background: #20d129;
+}

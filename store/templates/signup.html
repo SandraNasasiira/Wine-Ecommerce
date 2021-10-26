@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" 
+    type="image/png" 
+    href="https://cdn1.vectorstock.com/i/1000x1000/00/25/wine-logo-transparent-background-vector-16260025.jpg"/>
+    
+    <title>Sign up</title>
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins',sans-serif;
+    }
+    html, body{
+        display: grid;
+        height: 100vh;
+        width: 100%;
+        place-items: center;
+    }
+    .model{
+        
+        background: rgb(211,202,138);
+        max-width: 500px;
+        width: 100%;
+        padding: 25px 30px;
+        border-radius: 5px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
+    }
+    .title{
+        font-size: 30px;
+        font-weight: 600;
+        margin: 20px 0 10px 0;
+        position: relative;
+        
+    } 
+    .title::before{
+        content: '';
+        position: absolute;
+        height: 4px;
+        width: 40px;
+        left: 0px;
+        bottom: 3px;
+        border-radius: 5px;
+        background: linear-gradient(to right, #cc9900 0%, rgb(44,1,1) 100%);
+    }
+        .btn{
+            background: linear-gradient(to right, rgb(44,1,1) 0%, #cc9900 100%);
+            font-size: 17px;
+            color: #fff;
+            border-radius: 20px 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: #cc9900;
+            width: 140px;
+        } 
+    
+        .btn:hover{
+            background: linear-gradient(to left, rgb(44,1,1) 0%, #cc9900 100%);
+            letter-spacing: 1px;
+            width: 170px;
+    
+        }
+    </style>
+    
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 model">
+                <h1 class="font-weight-light title" >Sign up</h1>
+                <hr>
+                <form action="{% url 'signup' %}" method="POST"  >
+                    {% if error %}
+                    <small style="color:red"> {{ error.field_error }} </small>
+                    <small style="color:green"> {{ error.success }} </small>
+                    {% endif %}
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input value="{{ userData.name }}" name="name" type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter name">
+                        {% if error %}
+                        <small style="color:red"> {{ error.name_error }} </small>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input value="{{ userData.email }}" name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                        {% if error %}
+                        <small style="color:red"> {{ error.emailExits_error }} </small>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone number</label>
+                        <input value="{{ userData.phone }}" name="phone" type="number" class="form-control" id="phone" placeholder="Enter Phone Number">
+                        {% if error %}
+                        <small style="color:red"> {{ error.phoneNumber_error }} </small>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input name="password" type="password" class="form-control" id="password" placeholder="Enter Password">
+                        {% if error %}
+                        <small style="color:red">{{ error.notMatch_error }}
+                            {{ error.minPass_error }} </small>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm_password">Confirm Password</label>
+                        <input name="confirm_password" type="password" class="form-control" id="confirm_password" placeholder="Enter Password">
+                        {% if error %}
+                        <small style="color:red"> {{ error.notMatch_error }}
+                            {{ error.minPass_error }} </small>
+                        {% endif %}
+                    </div>
+                    <center><button type="submit" class="btn ">SIGN UP</button></center>
+                </form>
+            </div>
+        </div>
+    </div>
+       
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script>
+
+    document.addEventListener("DOMContentLoaded", function(){
+     window.addEventListener('scroll', function() {
+     if (window.scrollY > 30) {
+       document.getElementById('navbar_top').classList.add('fixed-top');
+       // add padding top to show content behind navbar
+       navbar_height = document.querySelector('.navbar').offsetHeight;
+       document.body.style.paddingTop = navbar_height + 'px';
+     } else {
+       document.getElementById('navbar_top').classList.remove('fixed-top');
+        // remove padding top from body
+       document.body.style.paddingTop = '0';
+     } 
+ });
+});
+   </script> 
+</body>
+</html>

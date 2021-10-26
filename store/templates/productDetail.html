@@ -1,0 +1,98 @@
+{% load cart %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="icon" 
+  type="image/png" 
+  href="https://cdn1.vectorstock.com/i/1000x1000/00/25/wine-logo-transparent-background-vector-16260025.jpg"/>
+  
+    <title>Details</title>
+</head>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito','Sans-serif';
+
+    }
+.container{
+margin-top: 50px;
+font-family: 'Nunito','Sans-serif';
+font-size: 18px;
+width: 75%;
+border-radius: 12px;
+
+}
+.row2{
+background-color: rgb(224, 248, 207);
+border-radius: 40px 40px 0;
+}
+.btn{
+border-radius: 20px 4px ;
+background-color: green;
+color: white;
+} 
+.btn:hover{
+background-color: rgb(45,1,1);
+}
+</style>
+<body>
+
+<div class="container">
+<div class="row">
+    <div class="col-md-2 mb-3">
+        <ul class="list-group">
+            <li class="list-group-item active bg-secondary border-0"><a style="text-decoration:none; color:white;" href="/">All Category</a></li>
+            {% for category in categories %}
+            <li class="list-group-item"><a style="text-decoration:none; color:black;" href="/?category_id={{ category.id }}">{{ category.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-md-10">
+            {% if product  %}
+                <div class="card row2">
+                    <div class="card-body ">
+                        <div class="row ">
+                            <div class="col-md-4">
+                                <img src="{{ product.image.url }}" height="100%;" width="250px" alt="{{ product.name }}">
+                            </div>
+                            <div class="col-md-8">
+                                <div>
+                                    <h1 class="font-weight-light">{{ product.name }}</h1>
+                                    <h4 class="font-weight-light">Price:  <strong>Kshs{{ product.price }}</strong></h4>
+                                    <p class="mt-2"><strong>Description: <br> </strong> {{ product.description }}</p>
+
+                                     <form action="/#{{ product.id }}" method="POST">
+                                        {% csrf_token %}
+                                        <input type="hidden" value="{{ product.id }}" name="product">
+                                        {% if product|is_in_cart:request.session.cart %}
+                                        <a class="btn btn-warning" href="/cart">Go to cart </a>
+                                        {% else %}
+                                        <input class="btn btn-primary" type="submit" value="Add to cart">
+                                        {% endif %}
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+    </div>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>
