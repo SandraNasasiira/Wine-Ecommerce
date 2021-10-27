@@ -194,7 +194,7 @@ img:hover{
                             <img class="card-img-top " src="{{ product.image.url }}" height="200px" alt="Card image cap">
                             <div class="card-body">
                                 <p class="card-title name">{{ product.name|truncatechars:60 }}</p>
-                                <p class="card-text price">Kshs: {{ product.price}} per kg</p>
+                                <p class="card-text price">Kshs: {{ product.price}}</p>
                                 <form action="/store/prod#{{ product.id }}" method="POST">
                                     {% csrf_token %}
                                     <input type="hidden" value="{{ product.id }}" name="product">
