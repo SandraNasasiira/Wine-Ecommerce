@@ -38,23 +38,47 @@ background-color: rgb(224, 248, 207);
 border-radius: 40px 40px 0;
 }
 .btn{
-border-radius: 20px 4px ;
-background-color: green;
-color: white;
-} 
+    box-shadow:inset 0px 1px 3px 0px #94b891;
+	background:rgb(245, 245, 226);
+	border-radius:20px 4px;
+	border:1px solid rgb(45,1,1);
+	display:inline-block;
+	cursor:pointer;
+	color:rgb(45,1,1);
+	font-size:15px;
+	font-weight:bold;
+	padding:11px 23px;
+}
 .btn:hover{
-background-color: rgb(45,1,1);
+    background-color: rgb(45,1,1);
+    color: white;
+
+}
+.cats{
+    width: 160px;
+    font-weight: bold;
+    font-size: 17px;
+	
+	}
+	
+	.ctg:hover{
+    background-color: #9ead9d;
+
+}
+.ctg:active{
+    background-color: rgb(200, 223, 185);
+
 }
 </style>
 <body>
 
 <div class="container">
 <div class="row">
-    <div class="col-md-2 mb-3">
-        <ul class="list-group">
-            <li class="list-group-item active bg-secondary border-0"><a style="text-decoration:none; color:white;" href="/">All Category</a></li>
+    <div class="col-md-2 mb-3 ">
+        <ul class="list-group cats" >
+            <li class="list-group-item active border-0 catshead" style="background: #bda87f;"><a style="text-decoration:none; color:white;" href="/store/prod">All Categories</a></li>
             {% for category in categories %}
-            <li class="list-group-item"><a style="text-decoration:none; color:black;" href="/?category_id={{ category.id }}">{{ category.name }}</a></li>
+            <li class="list-group-item ctg"><a style="text-decoration:none; color:#000;" href="/store/prod?category_id={{ category.id }}">{{ category.name }}</a></li>
             {% endfor %}
         </ul>
     </div>
