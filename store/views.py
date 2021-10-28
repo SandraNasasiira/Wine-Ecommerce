@@ -3,7 +3,7 @@ from django.views import View
 from .models import Product,Order,Customer,Category
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth.hashers import make_password
-
+from django.contrib import messages
 
 	# views of the products and the category functionality
 class Prod(View):
@@ -56,6 +56,7 @@ class Cart(View):
 			pId = request.GET.get('decrease')
 			products = request.session.get('cart')
 			print(products[pId])
+			
 			if products[pId] > 1:
 				products[pId] -= 1
 				request.session['cart'] = products
@@ -122,6 +123,7 @@ class Signup(View):
 					password=make_password(userData['password']),
 				)
 				customer.save()
+				messages.success(request,"You have successfully signed up to grapewines.")
 				return redirect('prod')
 
 	# Validatio of form method
